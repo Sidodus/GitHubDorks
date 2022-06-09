@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHubDorking.html</title>
+  </head>
+  <body>
+    <h1 style="margin-top: -10px">GitHubDorking.html</h1>
+    <div style="padding-left: 1em; margin-top: -1.3em">
+      <code>
+        This HTML Page Was Used To Write Out Dorks Template For
+        GitHubDorking.sh</code
+      >
+      <hr />
+      <code> run</code><br />
+      <code> bash ./GitHubDorking.sh NameOfCompanyOrUser</code>
+    </div>
+    <div style="padding: 0 3em">
+      <textarea
+        id="display2Dom"
+        rows="34"
+        cols="170"
+        style="padding: 1em 2em; background-color: darkgray"
+      ></textarea>
+    </div>
+
+    <script src="./dorks.js"></script>
+    <script>
+      const gitHubDorksOutputs = [];
+
+      const reCreateGitHubDorks = (dorks) => {
+        dorks.forEach((dork) => {
+          if (dork.includes("echo")) {
+            gitHubDorksOutputs.push(dork);
+          } else {
+            console.log("dork:", dork);
+            gitHubDorksOutputs.push(`echo "    user:\\"$1\\" ${dork}"`);
+            gitHubDorksOutputs.push(
+              `echo "https://github.com/search?q=user:%22$1%22+${dork}&type=Code"`
+            );
+            gitHubDorksOutputs.push(`echo ""`);
+          }
+        });
+      };
+
+      reCreateGitHubDorks(dorks);
+      //   console.log("gitHubDorksOutputs:", gitHubDorksOutputs);
+
+      gitHubDorksOutputs.forEach((elem) => {
+        document.getElementById("display2Dom").value += `${elem} \n`;
+      });
+    </script>
+  </body>
+</html>

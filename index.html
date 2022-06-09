@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <style>
+    body {
+      background-color: gray;
+      color: #000;
+      font-size: 14pt;
+      font-family: "Merienda One";
+      font-weight: bold;
+    }
+
+    .dork {
+      color: black;
+      text-decoration: none;
+    }
+
+    .dork:hover {
+      text-align: center;
+      font-family: Merienda One;
+      text-shadow: 0 0 1px #2600ff, 0 0 2px black, 0 0 1px #2600ff;
+      color: rgb(219, 196, 196);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .linkMouseOver:hover {
+      font-family: 'Merienda One';
+      font-weight: bold;
+      color: rgb(219, 215, 215);
+      text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    hr {
+      border: 2;
+      color: black;
+    }
+  </style>
+
+  <title>GitHub Dorking</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-auto" href="#" style="
+            color: rgb(219, 215, 215);
+            font-size: 45pt;
+            text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+          ">GitHub Dorking</a>
+
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg" style="margin-top: -2em">
+    <div class="container-fluid">
+      <a target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/Sidodus"
+      class="ms-auto linkMouseOver"
+      style="color: rgb(255, 255, 255);font-size: 10pt; font-family: 'Courier New', Courier, monospace; font-weight: 100; text-decoration: none
+      ">
+      By Sidodus
+      </a>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="text-light mt-2 mb-3">
+          <div style="text-align: center; color: black">
+            <b>Target UserName </b>
+
+            <input id="target" name="target" placeholder="Company / User Name" autofocus="" type="text" /><br />
+            <hr />
+          </div>
+        </div>
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <div class="row">
+          <div class="mb-4" style="
+                text-align: center;
+                font-family: Merienda One;
+                text-shadow: 0 0 1px black, 0 0 2px rgb(248, 248, 248), 0 0 1px rgb(7, 7, 7);
+                color: rgb(61, 58, 58)
+              ">
+            ******************* You must be logged into GitHub To Run Github Dorking *******************
+            <br />
+            ******* Whenever GitHub Returns No Search Result; Edit The Search BOX Query In GitHub To Taste *******
+          </div>
+          <div class="col-md-4">
+            <div style="text-align: center">
+              <div style="display: inline-block; text-align: left">
+
+                <div style="
+          font-family: Merienda One;
+          text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+          color: rgb(219, 196, 196);
+        ">*** Specific Org search: ***</div>
+                <span class="dork" onclick="gitHub_it(1)">&#128269; password</span><span id="dork-1"></span><br />
+                <span class="dork" onclick="gitHub_it(2)">&#128269; key</span><span id="dork-2"></span><br />
+                <span class="dork" onclick="gitHub_it(3)">&#128269; api</span><span id="dork-3"></span><br />
+                <span class="dork" onclick="gitHub_it(4)">&#128269; "filename:vim_settings.xml"</span><span
+                  id="dork-4"></span><br />
+                <span class="dork" onclick="gitHub_it(5)">&#128269; "Authorization:+Bearer"</span><span
+                  id="dork-5"></span><br />
+                <span class="dork" onclick="gitHub_it(6)">&#128269; "Language:+PHP"</span><span
+                  id="dork-6"></span><br />
+                <span class="dork" onclick="gitHub_it(7)">&#128269; "company.com"+"dev"</span><span
+                  id="dork-7"></span><br />
+                <span class="dork" onclick="gitHub_it(8)">&#128269; "dev.company.com"</span><span
+                  id="dork-8"></span><br />
+                <span class="dork" onclick="gitHub_it(9)">&#128269; "opensource.company.dev"</span><span
+                  id="dork-9"></span><br />
+                <span class="dork" onclick="gitHub_it(10)">&#128269; "opensource.company.com"</span><span
+                  id="dork-10"></span><br />
+                <span class="dork" onclick="gitHub_it(11)">&#128269; "company.com"+API_key</span><span
+                  id="dork-11"></span><br />
+                <span class="dork" onclick="gitHub_it(12)">&#128269; "company.com"+password</span><span
+                  id="dork-12"></span><br />
+                <span class="dork" onclick="gitHub_it(13)">&#128269; "api.company.com"+authorization</span><span
+                  id="dork-13"></span><br />
+
+                <br />
+                <div style="
+          font-family: Merienda One;
+          text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+          color: rgb(219, 196, 196);
+        ">*** Sensitive Files search: ***</div>
+                <span class="dork" onclick="gitHub_it(14)">&#128269; path:sites+databases+password</span><span
+                  id="dork-14"></span><br />
+                <span class="dork" onclick="gitHub_it(15)">&#128269; filename:manifest.xml</span><span
+                  id="dork-15"></span><br />
+                <span class="dork" onclick="gitHub_it(16)">&#128269; filename:travis.yml</span><span
+                  id="dork-16"></span><br />
+                <span class="dork" onclick="gitHub_it(17)">&#128269; filename:vim_settings.xml</span><span
+                  id="dork-17"></span><br />
+                <span class="dork" onclick="gitHub_it(18)">&#128269; filename:database</span><span
+                  id="dork-18"></span><br />
+                <span class="dork" onclick="gitHub_it(19)">&#128269; filename:secrets.yml+password</span><span
+                  id="dork-19"></span><br />
+                <span class="dork" onclick="gitHub_it(20)">&#128269; filename:.esmtprc+password</span><span
+                  id="dork-20"></span><br />
+                <span class="dork" onclick="gitHub_it(21)">&#128269; filename:passwd+path:etc</span><span
+                  id="dork-21"></span><br />
+                <span class="dork" onclick="gitHub_it(22)">&#128269; filename:dbeaver-data-sources.xml</span><span
+                  id="dork-22"></span><br />
+                <span class="dork" onclick="gitHub_it(23)">&#128269; filename:config.php+dbpasswd</span><span
+                  id="dork-23"></span><br />
+                <span class="dork" onclick="gitHub_it(24)">&#128269; filename:.netrc+password</span><span
+                  id="dork-24"></span><br />
+                <span class="dork" onclick="gitHub_it(25)">&#128269; filename:_netrc+password</span><span
+                  id="dork-25"></span><br />
+                <span class="dork" onclick="gitHub_it(26)">&#128269; filename:hub+oauth_token</span><span
+                  id="dork-26"></span><br />
+                <span class="dork" onclick="gitHub_it(27)">&#128269; filename:filezilla.xml+Pass</span><span
+                  id="dork-27"></span><br />
+                <span class="dork" onclick="gitHub_it(28)">&#128269; filename:recentservers.xml+Pass</span><span
+                  id="dork-28"></span><br />
+                <span class="dork" onclick="gitHub_it(29)">&#128269; filename:idea14.key</span><span
+                  id="dork-29"></span><br />
+                <span class="dork" onclick="gitHub_it(30)">&#128269; filename:config+irc_pass</span><span
+                  id="dork-30"></span><br />
+                <span class="dork" onclick="gitHub_it(31)">&#128269; filename:connections.xml</span><span
+                  id="dork-31"></span><br />
+                <span class="dork" onclick="gitHub_it(32)">&#128269; filename:express.conf+path:.openshift</span><span
+                  id="dork-32"></span><br />
+                <span class="dork" onclick="gitHub_it(33)">&#128269; filename:.pgpass</span><span
+                  id="dork-33"></span><br />
+                <span class="dork" onclick="gitHub_it(34)">&#128269; filename:proftpdpasswd</span><span
+                  id="dork-34"></span><br />
+                <span class="dork" onclick="gitHub_it(35)">&#128269; filename:ventrilo_srv.ini</span><span
+                  id="dork-35"></span><br />
+                <span class="dork" onclick="gitHub_it(36)">&#128269; filename:settings.py+SECRET_KEY</span><span
+                  id="dork-36"></span><br />
+                <span class="dork" onclick="gitHub_it(37)">&#128269; filename:master.key+path:config</span><span
+                  id="dork-37"></span><br />
+                <span class="dork" onclick="gitHub_it(38)">&#128269; filename:deployment-config.json</span><span
+                  id="dork-38"></span><br />
+                <span class="dork" onclick="gitHub_it(39)">&#128269; filename:.ftpconfig</span><span
+                  id="dork-39"></span><br />
+                <span class="dork" onclick="gitHub_it(40)">&#128269; filename:.remote-sync.json</span><span
+                  id="dork-40"></span><br />
+                <span class="dork" onclick="gitHub_it(41)">&#128269; filename:sftp.json+path:.vscode</span><span
+                  id="dork-41"></span><br />
+                <span class="dork" onclick="gitHub_it(42)">&#128269; filename:WebServers.xml</span><span
+                  id="dork-42"></span><br />
+                <span class="dork" onclick="gitHub_it(43)">&#128269; filename:jupyter_notebook_config.json</span><span
+                  id="dork-43"></span><br />
+                <span class="dork" onclick="gitHub_it(44)">&#128269; filename:logins.json</span><span
+                  id="dork-44"></span><br />
+                <span class="dork" onclick="gitHub_it(45)">&#128269; filename:CCCam.cfg</span><span
+                  id="dork-45"></span><br />
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="text-align: center">
+              <div style="display: inline-block; text-align: left">
+                <span class="dork" onclick="gitHub_it(46)">&#128269; filename:.bash_history</span><span
+                  id="dork-46"></span><br />
+                <span class="dork" onclick="gitHub_it(47)">&#128269; filename:.cshrc</span><span
+                  id="dork-47"></span><br />
+                <span class="dork" onclick="gitHub_it(48)">&#128269; filename:.history</span><span
+                  id="dork-48"></span><br />
+                <span class="dork" onclick="gitHub_it(49)">&#128269; filename:.sh_history</span><span
+                  id="dork-49"></span><br />
+                <span class="dork" onclick="gitHub_it(50)">&#128269; filename:sshd_config</span><span
+                  id="dork-50"></span><br />
+                <span class="dork" onclick="gitHub_it(51)">&#128269; filename:dhcpd.conf</span><span
+                  id="dork-51"></span><br />
+                <span class="dork" onclick="gitHub_it(52)">&#128269; filename:prod.exs+NOT+prod.secret.exs</span><span
+                  id="dork-52"></span><br />
+                <span class="dork" onclick="gitHub_it(53)">&#128269; filename:prod.secret.exs</span><span
+                  id="dork-53"></span><br />
+                <span class="dork" onclick="gitHub_it(54)">&#128269;
+                  filename:configuration.php+JConfig+password</span><span id="dork-54"></span><br />
+                <span class="dork" onclick="gitHub_it(55)">&#128269; filename:config.php+pass</span><span
+                  id="dork-55"></span><br />
+                <span class="dork" onclick="gitHub_it(56)">&#128269; filename:sftp-config.json</span><span
+                  id="dork-56"></span><br />
+                <span class="dork" onclick="gitHub_it(57)">&#128269; filename:.npmrc+_auth</span><span
+                  id="dork-57"></span><br />
+                <span class="dork" onclick="gitHub_it(58)">&#128269; filename:.dockercfg+auth</span><span
+                  id="dork-58"></span><br />
+                <span class="dork" onclick="gitHub_it(59)">&#128269; filename:shadow+path:etc</span><span
+                  id="dork-59"></span><br />
+                <span class="dork" onclick="gitHub_it(60)">&#128269; filename:id_rsa+or+filename:id_dsa</span><span
+                  id="dork-60"></span><br />
+                <span class="dork" onclick="gitHub_it(61)">&#128269; filename:.tugboat+NOT+_tugboat</span><span
+                  id="dork-61"></span><br />
+                <span class="dork" onclick="gitHub_it(62)">&#128269; filename:server.cfg+rcon+password</span><span
+                  id="dork-62"></span><br />
+                <span class="dork" onclick="gitHub_it(63)">&#128269; filename:credentials+aws_access_key_id</span><span
+                  id="dork-63"></span><br />
+                <span class="dork" onclick="gitHub_it(64)">&#128269; filename:.s3cfg</span><span
+                  id="dork-64"></span><br />
+                <span class="dork" onclick="gitHub_it(65)">&#128269; filename:wp-config.php</span><span
+                  id="dork-65"></span><br />
+                <span class="dork" onclick="gitHub_it(66)">&#128269; filename:.htpasswd</span><span
+                  id="dork-66"></span><br />
+                <span class="dork" onclick="gitHub_it(67)">&#128269; filename:.env+DB_USERNAME+NOT+homestead</span><span
+                  id="dork-67"></span><br />
+                <span class="dork" onclick="gitHub_it(68)">&#128269; filename:.env+MAIL_HOST=smtp.gmail.com</span><span
+                  id="dork-68"></span><br />
+                <span class="dork" onclick="gitHub_it(69)">&#128269; filename:.git-credentials</span><span
+                  id="dork-69"></span><br />
+                <span class="dork" onclick="gitHub_it(70)">&#128269; filename:.bashrc+password</span><span
+                  id="dork-70"></span><br />
+                <span class="dork" onclick="gitHub_it(71)">&#128269; filename:.bashrc+mailchimp</span><span
+                  id="dork-71"></span><br />
+                <span class="dork" onclick="gitHub_it(72)">&#128269; filename:.bash_profile+aws</span><span
+                  id="dork-72"></span><br />
+                <span class="dork" onclick="gitHub_it(73)">&#128269; msg+nickserv+identify+filename:config</span><span
+                  id="dork-73"></span><br />
+                <span class="dork" onclick="gitHub_it(74)">&#128269; rds.amazonaws.com+password</span><span
+                  id="dork-74"></span><br />
+                <span class="dork" onclick="gitHub_it(75)">&#128269; SF_USERNAME+salesforce</span><span
+                  id="dork-75"></span><br />
+                <span class="dork" onclick="gitHub_it(76)">&#128269; xoxp+OR+xoxb</span><span id="dork-76"></span><br />
+                <span class="dork" onclick="gitHub_it(77)">&#128269; .mlab.com+password</span><span
+                  id="dork-77"></span><br />
+                <span class="dork" onclick="gitHub_it(78)">&#128269; language:python+username</span><span
+                  id="dork-78"></span><br />
+                <span class="dork" onclick="gitHub_it(79)">&#128269; language:php+username</span><span
+                  id="dork-79"></span><br />
+                <span class="dork" onclick="gitHub_it(80)">&#128269; language:sql+username</span><span
+                  id="dork-80"></span><br />
+                <span class="dork" onclick="gitHub_it(81)">&#128269; language:html+password</span><span
+                  id="dork-81"></span><br />
+                <span class="dork" onclick="gitHub_it(82)">&#128269; language:perl+password</span><span
+                  id="dork-82"></span><br />
+                <span class="dork" onclick="gitHub_it(83)">&#128269; language:shell+username</span><span
+                  id="dork-83"></span><br />
+                <span class="dork" onclick="gitHub_it(84)">&#128269; language:java+api</span><span
+                  id="dork-84"></span><br />
+                <span class="dork" onclick="gitHub_it(85)">&#128269; PT_TOKEN+language:bash</span><span
+                  id="dork-85"></span><br />
+                <span class="dork" onclick="gitHub_it(86)">&#128269;
+                  HOMEBREW_GITHUB_API_TOKEN+language:shell</span><span id="dork-86"></span><br />
+                <span class="dork" onclick="gitHub_it(87)">&#128269; shodan_api_key+language:python</span><span
+                  id="dork-87"></span><br />
+                <span class="dork" onclick="gitHub_it(88)">&#128269; shodan_api_key+language:shell</span><span
+                  id="dork-88"></span><br />
+                <span class="dork" onclick="gitHub_it(89)">&#128269; shodan_api_key+language:json</span><span
+                  id="dork-89"></span><br />
+                <span class="dork" onclick="gitHub_it(90)">&#128269; shodan_api_key+language:ruby</span><span
+                  id="dork-90"></span><br />
+                <span class="dork" onclick="gitHub_it(91)">&#128269; HEROKU_API_KEY+language:shell</span><span
+                  id="dork-91"></span><br />
+                <span class="dork" onclick="gitHub_it(92)">&#128269; HEROKU_API_KEY+language:json</span><span
+                  id="dork-92"></span><br />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="text-align: center">
+              <div style="display: inline-block; text-align: left">
+                <div style="
+                            font-family: Merienda One;
+                            text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+                            color: rgb(219, 196, 196);
+                          ">*** API keys, Token & Hard-Coded Password search: ***</div>
+                <span class="dork" onclick="gitHub_it(93)">&#128269;
+                  SecretKey+/+Secret_Key+/+Secrect_key+/+skey</span><span id="dork-93"></span><br />
+                <span class="dork" onclick="gitHub_it(94)">&#128269; privatekey+/+private_key+/+pkey</span><span
+                  id="dork-94"></span><br />
+                <span class="dork" onclick="gitHub_it(95)">&#128269; user_secret+/+userSecret</span><span
+                  id="dork-95"></span><br />
+                <span class="dork" onclick="gitHub_it(96)">&#128269;
+                  admin_passwd+/+adminpasswd+/+adminPass+etc</span><span id="dork-96"></span><br />
+                <span class="dork" onclick="gitHub_it(97)">&#128269; "api+keys"</span><span id="dork-97"></span><br />
+                <span class="dork" onclick="gitHub_it(98)">&#128269; authorization_bearer:</span><span
+                  id="dork-98"></span><br />
+                <span class="dork" onclick="gitHub_it(99)">&#128269; oauth</span><span id="dork-99"></span><br />
+                <span class="dork" onclick="gitHub_it(100)">&#128269; auth</span><span id="dork-100"></span><br />
+                <span class="dork" onclick="gitHub_it(101)">&#128269; authentication</span><span
+                  id="dork-101"></span><br />
+                <span class="dork" onclick="gitHub_it(102)">&#128269; client_secret</span><span
+                  id="dork-102"></span><br />
+                <span class="dork" onclick="gitHub_it(103)">&#128269; api_token:</span><span id="dork-103"></span><br />
+                <span class="dork" onclick="gitHub_it(104)">&#128269; "api+token"</span><span
+                  id="dork-104"></span><br />
+                <span class="dork" onclick="gitHub_it(105)">&#128269; client_id</span><span id="dork-105"></span><br />
+                <span class="dork" onclick="gitHub_it(106)">&#128269; password</span><span id="dork-106"></span><br />
+                <span class="dork" onclick="gitHub_it(107)">&#128269; user_password</span><span
+                  id="dork-107"></span><br />
+                <span class="dork" onclick="gitHub_it(108)">&#128269; user_pass</span><span id="dork-108"></span><br />
+                <span class="dork" onclick="gitHub_it(109)">&#128269; passcode</span><span id="dork-109"></span><br />
+                <span class="dork" onclick="gitHub_it(110)">&#128269; secret</span><span id="dork-110"></span><br />
+                <span class="dork" onclick="gitHub_it(111)">&#128269; password+hash</span><span
+                  id="dork-111"></span><br />
+                <span class="dork" onclick="gitHub_it(112)">&#128269; OTP</span><span id="dork-112"></span><br />
+                <span class="dork" onclick="gitHub_it(113)">&#128269; user+auth</span><span id="dork-113"></span><br />
+                <span class="dork" onclick="gitHub_it(114)">&#128269; JEKYLL_GITHUB_TOKEN</span><span
+                  id="dork-114"></span><br />
+
+                <br />
+                <div style="
+                            font-family: Merienda One;
+                            text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+                            color: rgb(219, 196, 196);
+                          ">*** Username search: ***</div>
+                <div style="
+                            font-family: Merienda One;
+                            font-size: 0.8rem;
+                            text-shadow: 0 0 1px black, 0 0 2px black, 0 0 1px rgb(7, 7, 7);
+                color: rgb(211, 204, 204)
+                          ">... NEEDS CORRECTION ...</div>
+                <span class="dork" onclick="gitHub_it(115)">&#128269; (user:admin)</span><span
+                  id="dork-115"></span><br />
+                <span class="dork" onclick="gitHub_it(116)">&#128269; org:"USERNAME" (org:google+type:users)</span><span
+                  id="dork-116"></span><br />
+                <span class="dork" onclick="gitHub_it(117)">&#128269; in:login+(USERNAME+in:login)</span><span
+                  id="dork-117"></span><br />
+                <span class="dork" onclick="gitHub_it(118)">&#128269; in:name+(USERNAME+in:name)</span><span
+                  id="dork-118"></span><br />
+                <span class="dork" onclick="gitHub_it(119)">&#128269; fullname:firstname+lastname+(fullname:USERNAME+
+                  <surname>)
+                </span><span id="dork-119"></span><br />
+                <span class="dork" onclick="gitHub_it(120)">&#128269; in:email+(data+in:email)</span><span
+                  id="dork-120"></span><br />
+
+                <br />
+                <div style="
+                            font-family: Merienda One;
+                            text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+                            color: rgb(219, 196, 196);
+                          ">*** GitHub Dorks for Finding Information using Dates: ***</div>
+                <div style="
+                          font-family: Merienda One;
+                          font-size: 0.8rem;
+                          text-shadow: 0 0 1px black, 0 0 2px black, 0 0 1px rgb(7, 7, 7);
+                color: rgb(211, 204, 204)
+                        ">... Manually Edit Date &amp; Location ...</div>
+                <span class="dork" onclick="gitHub_it(121)">&#128269; created:<\2012–04–05 </span><span
+                      id="dork-121"></span><br />
+                    <span class="dork" onclick="gitHub_it(122)">&#128269; created:>=2011–06–12</span><span
+                      id="dork-122"></span><br />
+                    <span class="dork" onclick="gitHub_it(123)">&#128269;
+                      created:2016–02–07+location:iceland</span><span id="dork-123"></span><br />
+                    <span class="dork" onclick="gitHub_it(124)">&#128269;
+                      created:2011–04–06..2013–01–14+USERNAME+in:username</span><span id="dork-124"></span><br />
+
+                    <br />
+                    <div style="
+                            font-family: Merienda One;
+                            text-shadow: 0 0 6px #ff0000, 0 0 5px #ff0000, 0 0 5px #2600ff;
+                            color: rgb(219, 196, 196);
+                          ">*** Extension based search: ***</div>
+                    <span class="dork" onclick="gitHub_it(125)">&#128269; extension:pem+private</span><span
+                      id="dork-125"></span><br />
+                    <span class="dork" onclick="gitHub_it(126)">&#128269; extension:ppk+private</span><span
+                      id="dork-126"></span><br />
+                    <span class="dork" onclick="gitHub_it(127)">&#128269; extension:sql+mysql+dump</span><span
+                      id="dork-127"></span><br />
+                    <span class="dork" onclick="gitHub_it(128)">&#128269; extension:sql+mysql+dump+password</span><span
+                      id="dork-128"></span><br />
+                    <span class="dork" onclick="gitHub_it(129)">&#128269; extension:json+api.forecast.io</span><span
+                      id="dork-129"></span><br />
+                    <span class="dork" onclick="gitHub_it(130)">&#128269; extension:json+mongolab.com</span><span
+                      id="dork-130"></span><br />
+                    <span class="dork" onclick="gitHub_it(131)">&#128269; extension:yaml+mongolab.com</span><span
+                      id="dork-131"></span><br />
+                    <span class="dork" onclick="gitHub_it(132)">&#128269;
+                      extension:json+googleusercontent+client_secret</span><span id="dork-132"></span><br />
+                    <span class="dork" onclick="gitHub_it(133)">&#128269;
+                      extension:avastlic+"support.avast.com"</span><span id="dork-133"></span><br />
+                    <span class="dork" onclick="gitHub_it(134)">&#128269; [WFClient]+Password=+extension:ica</span><span
+                      id="dork-134"></span><br />
+                    <span class="dork" onclick="gitHub_it(135)">&#128269; jsforce+extension:js+conn.login</span><span
+                      id="dork-135"></span><br />
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+
+  <script>
+    let lastClicked = "dork-1"
+    function gitHub_it(type) {
+      let site = document.getElementById("target").value.trim();
+
+      if (site === "") {
+        alert("Input Field Can't Be Empty");
+      } else {
+        document.getElementById(`${lastClicked}`).textContent = ""
+        lastClicked = `dork-${type}`
+        document.getElementById(`${lastClicked}`).innerHTML = " &#128279; "
+        document.getElementById(`${lastClicked}`).style.textShadow = "0 0 2px #ff0000, 0 0 2px #ff0000, 0 0 5px #2600ff"
+
+        // Extract Only The DNS
+        if (site.indexOf("://") > 0) {
+          site = site.substr(site.indexOf("://") + 3);
+        }
+       
+        let user = "";
+
+        switch (type) {
+
+          case 1:
+            user = `https://github.com/search?q=user:%22${site}%22+password&type=Code`
+            break;
+
+          case 2:
+            user = `https://github.com/search?q=user:%22${site}%22+key&type=Code`
+            break;
+
+          case 3:
+            user = `https://github.com/search?q=user:%22${site}%22+api&type=Code`
+            break;
+
+          case 4:
+            user = `https://github.com/search?q=user:%22${site}%22+%22filename:vim_settings.xml%22&type=Code`
+            break;
+
+          case 5:
+            user = `https://github.com/search?q=user:%22${site}%22+%22Authorization:+Bearer%22&type=Code`
+            break;
+
+          case 6:
+            user = `https://github.com/search?q=user:%22${site}%22+%22Language:+PHP%22&type=Code`
+            break;
+
+          case 7:
+            user = `https://github.com/search?q=user:%22${site}%22+%22${site}.com%22+%22dev%22&type=Code`
+            break;
+
+          case 8:
+            user = `https://github.com/search?q=user:%22${site}%22+%22dev.${site}.com%22&type=Code`
+            break;
+
+          case 9:
+            user = `https://github.com/search?q=user:%22${site}%22+%22opensource.${site}.dev%22&type=Code`
+            break;
+
+          case 10:
+            user = `https://github.com/search?q=user:%22${site}%22+%22opensource.${site}.com%22&type=Code`
+            break;
+
+          case 11:
+            user = `https://github.com/search?q=user:%22${site}%22+%22${site}.com%22+API_key&type=Code`
+            break;
+
+          case 12:
+            user = `https://github.com/search?q=user:%22${site}%22+%22${site}.com%22+password&type=Code`
+            break;
+
+          case 13:
+            user = `https://github.com/search?q=user:%22${site}%22+%22api.${site}.com%22+authorization&type=Code`
+            break;
+
+          case 14:
+            user = `https://github.com/search?q=user:%22${site}%22+path:sites+databases+password&type=Code`
+            break;
+
+          case 15:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:manifest.xml&type=Code`
+            break;
+
+          case 16:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:travis.yml&type=Code`
+            break;
+
+          case 17:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:vim_settings.xml&type=Code`
+            break;
+
+          case 18:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:database&type=Code`
+            break;
+
+          case 19:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:secrets.yml+password&type=Code`
+            break;
+
+          case 20:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.esmtprc+password&type=Code`
+            break;
+
+          case 21:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:passwd+path:etc&type=Code`
+            break;
+
+          case 22:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:dbeaver-data-sources.xml&type=Code`
+            break;
+
+          case 23:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:config.php+dbpasswd&type=Code`
+            break;
+
+          case 24:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.netrc+password&type=Code`
+            break;
+
+          case 25:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:_netrc+password&type=Code`
+            break;
+
+          case 26:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:hub+oauth_token&type=Code`
+            break;
+
+          case 27:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:filezilla.xml+Pass&type=Code`
+            break;
+
+          case 28:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:recentservers.xml+Pass&type=Code`
+            break;
+
+          case 29:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:idea14.key&type=Code`
+            break;
+
+          case 30:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:config+irc_pass&type=Code`
+            break;
+
+          case 31:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:connections.xml&type=Code`
+            break;
+
+          case 32:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:express.conf+path:.openshift&type=Code`
+            break;
+
+          case 33:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.pgpass&type=Code`
+            break;
+
+          case 34:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:proftpdpasswd&type=Code`
+            break;
+
+          case 35:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:ventrilo_srv.ini&type=Code`
+            break;
+
+          case 36:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:settings.py+SECRET_KEY&type=Code`
+            break;
+
+          case 37:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:master.key+path:config&type=Code`
+            break;
+
+          case 38:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:deployment-config.json&type=Code`
+            break;
+
+          case 39:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.ftpconfig&type=Code`
+            break;
+
+          case 40:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.remote-sync.json&type=Code`
+            break;
+
+          case 41:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:sftp.json+path:.vscode&type=Code`
+            break;
+
+          case 42:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:WebServers.xml&type=Code`
+            break;
+
+          case 43:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:jupyter_notebook_config.json&type=Code`
+            break;
+
+          case 44:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:logins.json&type=Code`
+            break;
+
+          case 45:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:CCCam.cfg&type=Code`
+            break;
+
+          case 46:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.bash_history&type=Code`
+            break;
+
+          case 47:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.cshrc&type=Code`
+            break;
+
+          case 48:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.history&type=Code`
+            break;
+
+          case 49:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.sh_history&type=Code`
+            break;
+
+          case 50:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:sshd_config&type=Code`
+            break;
+
+          case 51:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:dhcpd.conf&type=Code`
+            break;
+
+          case 52:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:prod.exs+NOT+prod.secret.exs&type=Code`
+            break;
+
+          case 53:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:prod.secret.exs&type=Code`
+            break;
+
+          case 54:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:configuration.php+JConfig+password&type=Code`
+            break;
+
+          case 55:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:config.php+pass&type=Code`
+            break;
+
+          case 56:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:sftp-config.json&type=Code`
+            break;
+
+          case 57:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.npmrc+_auth&type=Code`
+            break;
+
+          case 58:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.dockercfg+auth&type=Code`
+            break;
+
+          case 59:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:shadow+path:etc&type=Code`
+            break;
+
+          case 60:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:id_rsa+or+filename:id_dsa&type=Code`
+            break;
+
+          case 61:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.tugboat+NOT+_tugboat&type=Code`
+            break;
+
+          case 62:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:server.cfg+rcon+password&type=Code`
+            break;
+
+          case 63:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:credentials+aws_access_key_id&type=Code`
+            break;
+
+          case 64:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.s3cfg&type=Code`
+            break;
+
+          case 65:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:wp-config.php&type=Code`
+            break;
+
+          case 66:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.htpasswd&type=Code`
+            break;
+
+          case 67:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.env+DB_USERNAME+NOT+homestead&type=Code`
+            break;
+
+          case 68:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.env+MAIL_HOST=smtp.gmail.com&type=Code`
+            break;
+
+          case 69:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.git-credentials&type=Code`
+            break;
+
+          case 70:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.bashrc+password&type=Code`
+            break;
+
+          case 71:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.bashrc+mailchimp&type=Code`
+            break;
+
+          case 72:
+            user = `https://github.com/search?q=user:%22${site}%22+filename:.bash_profile+aws&type=Code`
+            break;
+
+          case 73:
+            user = `https://github.com/search?q=user:%22${site}%22+msg+nickserv+identify+filename:config&type=Code`
+            break;
+
+          case 74:
+            user = `https://github.com/search?q=user:%22${site}%22+rds.amazonaws.com+password&type=Code`
+            break;
+
+          case 75:
+            user = `https://github.com/search?q=user:%22${site}%22+SF_USERNAME+salesforce&type=Code`
+            break;
+
+          case 76:
+            user = `https://github.com/search?q=user:%22${site}%22+xoxp+OR+xoxb&type=Code`
+            break;
+
+          case 77:
+            user = `https://github.com/search?q=user:%22${site}%22+.mlab.com+password&type=Code`
+            break;
+
+          case 78:
+            user = `https://github.com/search?q=user:%22${site}%22+language:python+username&type=Code`
+            break;
+
+          case 79:
+            user = `https://github.com/search?q=user:%22${site}%22+language:php+username&type=Code`
+            break;
+
+          case 80:
+            user = `https://github.com/search?q=user:%22${site}%22+language:sql+username&type=Code`
+            break;
+
+          case 81:
+            user = `https://github.com/search?q=user:%22${site}%22+language:html+password&type=Code`
+            break;
+
+          case 82:
+            user = `https://github.com/search?q=user:%22${site}%22+language:perl+password&type=Code`
+            break;
+
+          case 83:
+            user = `https://github.com/search?q=user:%22${site}%22+language:shell+username&type=Code`
+            break;
+
+          case 84:
+            user = `https://github.com/search?q=user:%22${site}%22+language:java+api&type=Code`
+            break;
+
+          case 85:
+            user = `https://github.com/search?q=user:%22${site}%22+PT_TOKEN+language:bash&type=Code`
+            break;
+
+          case 86:
+            user = `https://github.com/search?q=user:%22${site}%22+HOMEBREW_GITHUB_API_TOKEN+language:shell&type=Code`
+            break;
+
+          case 87:
+            user = `https://github.com/search?q=user:%22${site}%22+shodan_api_key+language:python&type=Code`
+            break;
+
+          case 88:
+            user = `https://github.com/search?q=user:%22${site}%22+shodan_api_key+language:shell&type=Code`
+            break;
+
+          case 89:
+            user = `https://github.com/search?q=user:%22${site}%22+shodan_api_key+language:json&type=Code`
+            break;
+
+          case 90:
+            user = `https://github.com/search?q=user:%22${site}%22+shodan_api_key+language:ruby&type=Code`
+            break;
+
+          case 91:
+            user = `https://github.com/search?q=user:%22${site}%22+HEROKU_API_KEY+language:shell&type=Code`
+            break;
+
+          case 92:
+            user = `https://github.com/search?q=user:%22${site}%22+HEROKU_API_KEY+language:json&type=Code`
+            break;
+
+          case 93:
+            user = `https://github.com/search?q=user:%22${site}%22+SecretKey+/+Secret_Key+/+Secrect_key+/+skey&type=Code`
+            break;
+
+          case 94:
+            user = `https://github.com/search?q=user:%22${site}%22+privatekey+/+private_key+/+pkey&type=Code`
+            break;
+
+          case 95:
+            user = `https://github.com/search?q=user:%22${site}%22+user_secret+/+userSecret&type=Code`
+            break;
+
+          case 96:
+            user = `https://github.com/search?q=user:%22${site}%22+admin_passwd+/+adminpasswd+/+adminPass+etc&type=Code`
+            break;
+
+          case 97:
+            user = `https://github.com/search?q=user:%22${site}%22+%22api+keys%22&type=Code`
+            break;
+
+          case 98:
+            user = `https://github.com/search?q=user:%22${site}%22+authorization_bearer:&type=Code`
+            break;
+
+          case 99:
+            user = `https://github.com/search?q=user:%22${site}%22+oauth&type=Code`
+            break;
+
+          case 100:
+            user = `https://github.com/search?q=user:%22${site}%22+auth&type=Code`
+            break;
+
+          case 101:
+            user = `https://github.com/search?q=user:%22${site}%22+authentication&type=Code`
+            break;
+
+          case 102:
+            user = `https://github.com/search?q=user:%22${site}%22+client_secret&type=Code`
+            break;
+
+          case 103:
+            user = `https://github.com/search?q=user:%22${site}%22+api_token:&type=Code`
+            break;
+
+          case 104:
+            user = `https://github.com/search?q=user:%22${site}%22+%22api+token%22&type=Code`
+            break;
+
+          case 105:
+            user = `https://github.com/search?q=user:%22${site}%22+client_id&type=Code`
+            break;
+
+          case 106:
+            user = `https://github.com/search?q=user:%22${site}%22+password&type=Code`
+            break;
+
+          case 107:
+            user = `https://github.com/search?q=user:%22${site}%22+user_password&type=Code`
+            break;
+
+          case 108:
+            user = `https://github.com/search?q=user:%22${site}%22+user_pass&type=Code`
+            break;
+
+          case 109:
+            user = `https://github.com/search?q=user:%22${site}%22+passcode&type=Code`
+            break;
+
+          case 110:
+            user = `https://github.com/search?q=user:%22${site}%22+secret&type=Code`
+            break;
+
+          case 111:
+            user = `https://github.com/search?q=user:%22${site}%22+password+hash&type=Code`
+            break;
+
+          case 112:
+            user = `https://github.com/search?q=user:%22${site}%22+OTP&type=Code`
+            break;
+
+          case 113:
+            user = `https://github.com/search?q=user:%22${site}%22+user+auth&type=Code`
+            break;
+
+          case 114:
+            user = `https://github.com/search?q=user:%22${site}%22+JEKYLL_GITHUB_TOKEN&type=Code`
+            break;
+
+          case 115:
+            user = `https://github.com/search?q=user:%22${site}%22+(user:admin)&type=Code`
+            break;
+
+          case 116:
+            user = `https://github.com/search?q=org:%22${site}%22+(org:google+type:users)&type=Code`
+            break;
+
+          case 117:
+            user = `https://github.com/search?q=in:login+(${site}+in:login)&type=Code`
+            break;
+
+          case 118:
+            user = `https://github.com/search?q=in:name+(${site}+in:name)&type=Code`
+            break;
+
+          case 119:
+            user = `https://github.com/search?q=fullname:firstname+lastname+(fullname:${site}+surname)&type=Code`
+            break;
+
+          case 120:
+            user = `https://github.com/search?q=user:%22${site}%22+in:email+(data+in:email)&type=Code`
+            break;
+
+          case 121:
+            user = `https://github.com/search?q=user:%22${site}%22+created:<2012–04–05&type=Code`
+            break;
+
+          case 122:
+            user = `https://github.com/search?q=user:%22${site}%22+created:>=2011–06–12&type=Code`
+            break;
+
+          case 123:
+            user = `https://github.com/search?q=user:%22${site}%22+created:2016–02–07+location:iceland&type=Code`
+            break;
+
+          case 124:
+            user = `https://github.com/search?q=user:%22${site}%22+created:2011–04–06..2013–01–14+${site}+in:username&type=Code`
+            break;
+
+          case 125:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:pem+private&type=Code`
+            break;
+
+          case 126:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:ppk+private&type=Code`
+            break;
+
+          case 127:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:sql+mysql+dump&type=Code`
+            break;
+
+          case 128:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:sql+mysql+dump+password&type=Code`
+            break;
+
+          case 129:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:json+api.forecast.io&type=Code`
+            break;
+
+          case 130:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:json+mongolab.com&type=Code`
+            break;
+
+          case 131:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:yaml+mongolab.com&type=Code`
+            break;
+
+          case 132:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:json+googleusercontent+client_secret&type=Code`
+            break;
+
+          case 133:
+            user = `https://github.com/search?q=user:%22${site}%22+extension:avastlic+%22support.avast.com%22&type=Code`
+            break;
+
+          case 134:
+            user = `https://github.com/search?q=user:%22${site}%22+[WFClient]+Password=+extension:ica&type=Code`
+            break;
+
+          case 135:
+            user = `https://github.com/search?q=user:%22${site}%22+jsforce+extension:js+conn.login&type=Code`
+            break;
+        }
+
+        // console.log("USER:", user);
+        window.open(user);
+      }
+    }
+  </script>
+</body>
+
+</html>
