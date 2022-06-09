@@ -4,4 +4,4 @@ GitHubDorks (GUI) is a simple Bash &amp; Javascript Security tool that can searc
 
 ## GUI at <a target="_blank" rel="noopener noreferrer" href="https://sidodus.github.io/GitHubDorks/"> GitHubDorks </a>
 
-### <a target="_blank" rel="noopener noreferrer" href="https://github.com/Sidodus"> By Sidodus </a>
+### <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/saheed-odulaja-75111337"> By Sidodus </a>
